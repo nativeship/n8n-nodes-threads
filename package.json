@@ -1,0 +1,66 @@
+{
+  "author": {
+    "email": "hello@nativeship.io",
+    "name": "nativeship",
+    "url": "https://github.com/nativeship"
+  },
+  "description": "Threads lets people publish posts, manage replies, and view post and profile insights.",
+  "devDependencies": {
+    "@n8n/node-cli": "0.41.2",
+    "@types/node": "22.15.29",
+    "eslint": "9.29.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": "\u003e=22.22.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/nativeship/n8n-nodes-threads",
+  "keywords": [
+    "n8n-community-node-package",
+    "nativeship",
+    "nativeship-nodes",
+    "n8n",
+    "threads",
+    "n8n-node",
+    "social-media",
+    "social-publishing",
+    "post-management",
+    "audience-insights"
+  ],
+  "license": "MIT",
+  "n8n": {
+    "credentials": [
+      "dist/credentials/ThreadsOAuth2Api.credentials.js"
+    ],
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/Threads/Threads.node.js"
+    ],
+    "strict": true
+  },
+  "name": "@nativeship/n8n-nodes-threads",
+  "nativeShip": {
+    "artifactSha256": "12634c6c557bac41cb5e29c1415ea199feabd6e8092a62fae9ccf6b438197b13"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nativeship/n8n-nodes-threads.git"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix"
+  },
+  "version": "1.0.0"
+}

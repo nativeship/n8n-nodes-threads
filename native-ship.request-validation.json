@@ -1,0 +1,671 @@
+{
+  "schemaVersion": 1,
+  "fixtures": [
+    {
+      "operationId": "createmediacontainer",
+      "method": "POST",
+      "path": "/{threadsUserId}/threads",
+      "serverId": "documentServer1HttpsGraphThreadsNetV10",
+      "authentication": [
+        {
+          "schemes": [
+            "accessToken"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "threadsUserId",
+          "inputName": "threadsUserId",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "children",
+            "inputName": "children",
+            "sample": [
+              "value/id"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "enable_reply_approvals",
+            "inputName": "enable_reply_approvals",
+            "sample": true,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "image_url",
+            "inputName": "image_url",
+            "sample": "https://local-api.native-ship.invalid/value",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "is_carousel_item",
+            "inputName": "is_carousel_item",
+            "sample": true,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "link_attachment",
+            "inputName": "link_attachment",
+            "sample": "https://local-api.native-ship.invalid/value",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "media_type",
+            "inputName": "media_type",
+            "sample": "TEXT",
+            "enum": [
+              "TEXT",
+              "IMAGE",
+              "VIDEO",
+              "CAROUSEL"
+            ],
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "reply_control",
+            "inputName": "reply_control",
+            "sample": "everyone",
+            "enum": [
+              "everyone",
+              "accounts_you_follow",
+              "mentioned_only",
+              "parent_post_author_only",
+              "followers_only"
+            ],
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "text",
+            "inputName": "text",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "topic_tag",
+            "inputName": "topic_tag",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "video_url",
+            "inputName": "video_url",
+            "sample": "https://local-api.native-ship.invalid/value",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "id"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized - invalid or expired access token"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "createmediacontainer",
+        "method": "POST",
+        "path": "/{threadsUserId}/threads",
+        "serverId": "documentServer1HttpsGraphThreadsNetV10",
+        "request": {
+          "method": "POST",
+          "url": "=/{{$parameter[\"threadsUserId\"]}}/threads",
+          "query": [],
+          "body": [
+            {
+              "name": "children",
+              "source": "additionalFields"
+            },
+            {
+              "name": "enable_reply_approvals",
+              "source": "additionalFields"
+            },
+            {
+              "name": "image_url",
+              "source": "additionalFields"
+            },
+            {
+              "name": "is_carousel_item",
+              "source": "additionalFields"
+            },
+            {
+              "name": "link_attachment",
+              "source": "additionalFields"
+            },
+            {
+              "name": "media_type",
+              "source": "parameter"
+            },
+            {
+              "name": "reply_control",
+              "source": "additionalFields"
+            },
+            {
+              "name": "text",
+              "source": "additionalFields"
+            },
+            {
+              "name": "topic_tag",
+              "source": "additionalFields"
+            },
+            {
+              "name": "video_url",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "accessToken"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "id"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized - invalid or expired access token"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter children"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "publishmediacontainer",
+      "method": "POST",
+      "path": "/{threadsUserId}/threads_publish",
+      "serverId": "documentServer1HttpsGraphThreadsNetV10",
+      "authentication": [
+        {
+          "schemes": [
+            "accessToken"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "threadsUserId",
+          "inputName": "threadsUserId",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "creation_id",
+            "inputName": "creation_id",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "id"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized - invalid or expired access token"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "publishmediacontainer",
+        "method": "POST",
+        "path": "/{threadsUserId}/threads_publish",
+        "serverId": "documentServer1HttpsGraphThreadsNetV10",
+        "request": {
+          "method": "POST",
+          "url": "=/{{$parameter[\"threadsUserId\"]}}/threads_publish",
+          "query": [],
+          "body": [
+            {
+              "name": "creation_id",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "accessToken"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "id"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized - invalid or expired access token"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "managependingreply",
+      "method": "POST",
+      "path": "/{threadsReplyId}/manage_pending_reply",
+      "serverId": "documentServer1HttpsGraphThreadsNetV10",
+      "authentication": [
+        {
+          "schemes": [
+            "accessToken"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "threadsReplyId",
+          "inputName": "threadsReplyId",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "approve",
+            "inputName": "approve",
+            "sample": true,
+            "type": "boolean",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "success",
+            "type": "boolean"
+          }
+        ],
+        "simplifiedFields": [
+          "success"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized - invalid or expired access token"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "managependingreply",
+        "method": "POST",
+        "path": "/{threadsReplyId}/manage_pending_reply",
+        "serverId": "documentServer1HttpsGraphThreadsNetV10",
+        "request": {
+          "method": "POST",
+          "url": "=/{{$parameter[\"threadsReplyId\"]}}/manage_pending_reply",
+          "query": [],
+          "body": [
+            {
+              "name": "approve",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "accessToken"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "success",
+              "type": "boolean"
+            }
+          ],
+          "simplifiedFields": [
+            "success"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized - invalid or expired access token"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "managereply",
+      "method": "POST",
+      "path": "/{threadsReplyId}/manage_reply",
+      "serverId": "documentServer1HttpsGraphThreadsNetV10",
+      "authentication": [
+        {
+          "schemes": [
+            "accessToken"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "threadsReplyId",
+          "inputName": "threadsReplyId",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "hide",
+            "inputName": "hide",
+            "sample": true,
+            "type": "boolean",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "success",
+            "type": "boolean"
+          }
+        ],
+        "simplifiedFields": [
+          "success"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Bad request"
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized - invalid or expired access token"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "managereply",
+        "method": "POST",
+        "path": "/{threadsReplyId}/manage_reply",
+        "serverId": "documentServer1HttpsGraphThreadsNetV10",
+        "request": {
+          "method": "POST",
+          "url": "=/{{$parameter[\"threadsReplyId\"]}}/manage_reply",
+          "query": [],
+          "body": [
+            {
+              "name": "hide",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "accessToken"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "success",
+              "type": "boolean"
+            }
+          ],
+          "simplifiedFields": [
+            "success"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Bad request"
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized - invalid or expired access token"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    }
+  ],
+  "triggerFixtures": [
+    {
+      "operationId": "getmediainsights",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getmediainsights",
+        "cursorParameter": "id",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    },
+    {
+      "operationId": "getuserinsights",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getuserinsights",
+        "cursorParameter": "id",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    },
+    {
+      "operationId": "getmediaobject",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getmediaobject",
+        "cursorParameter": "timestamp",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    },
+    {
+      "operationId": "getmyprofile",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getmyprofile",
+        "cursorParameter": "id",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    },
+    {
+      "operationId": "getpendingreplies",
+      "trigger": {
+        "type": "polling",
+        "sourceOperation": "getpendingreplies",
+        "cursorParameter": "timestamp",
+        "defaultPollInterval": "5m"
+      },
+      "assertions": [
+        "polling trigger cursor, advancement, first-poll, empty-result, restart, deduplication, deduplication-retention, state-scope, and item-linking behavior follow the declared Trigger Contract"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "node": "@nativeship/n8n-nodes-threads.threads",
+  "nodeVersion": "1"
+}
